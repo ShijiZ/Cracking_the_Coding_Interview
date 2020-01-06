@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Q7PermutationsWithoutSupsV2 {
+public class Q7PermutationsWithoutDupsV2 {
     public static ArrayList<String> getPerms(String str){
         if (str == null)
             return null;
