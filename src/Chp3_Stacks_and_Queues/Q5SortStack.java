@@ -1,3 +1,5 @@
+package Chp3_Stacks_and_Queues;
+
 import CtCILibrary.AssortedMethods;
 
 import java.util.Stack;
@@ -20,7 +22,7 @@ public class Q5SortStack {
     }
 
     public static void main(String[] args){
-        Stack<Integer> s = new Stack<Integer>();
+        Stack<Integer> s = new Stack<>();
         for (int i = 0; i < 10; i++) {
             int r = AssortedMethods.randomIntInRange(0,  1000);
             s.push(r);

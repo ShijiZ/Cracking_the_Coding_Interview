@@ -1,3 +1,5 @@
+package Chp3_Stacks_and_Queues;
+
 import java.util.EmptyStackException;
 import CtCILibrary.AssortedMethods;
 
@@ -22,7 +24,8 @@ public class Q1ThreeInOneV1 {
 
         /* Increment stack pointer and then update top value. */
         sizes[stackNum]++;
-        values[indexOfTop(stackNum)] = value;
+        int topIndex = indexOfTop(stackNum);
+        values[topIndex] = value;
     }
 
     /* Pop item from top stack. */

@@ -1,3 +1,5 @@
+package Chp3_Stacks_and_Queues;
+
 import java.util.EmptyStackException;
 import CtCILibrary.AssortedMethods;
 
@@ -106,7 +108,7 @@ public class Q1ThreeInOneV2 {
         if (stack.size > stack.capacity){
             int nextStack = (stackNum + 1) % info.length;
             shift(nextStack);
-            stack.capacity++; // claim inex that next stack lost
+            stack.capacity++; // claim index that next stack lost
         }
 
         /* Shift all elements in stack over by one. */
@@ -129,7 +131,7 @@ public class Q1ThreeInOneV2 {
     }
 
     /* Return the number of items actually present in stack. */
-    public int numberOfElements(){
+    private int numberOfElements(){
         int size = 0;
         for (StackInfo sd : info){
             size += sd.size;
@@ -138,7 +140,7 @@ public class Q1ThreeInOneV2 {
     }
 
     /* Returns true if all the stacks are full. */
-    public boolean allStacksAreFull(){
+    private boolean allStacksAreFull(){
         return numberOfElements() == values.length;
     }
 

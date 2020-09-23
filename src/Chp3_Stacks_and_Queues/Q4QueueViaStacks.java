@@ -1,3 +1,5 @@
+package Chp3_Stacks_and_Queues;
+
 import CtCILibrary.AssortedMethods;
 
 import java.util.LinkedList;
@@ -45,7 +47,7 @@ public class Q4QueueViaStacks<Item> {
         Q4QueueViaStacks<Integer> my_queue = new Q4QueueViaStacks<>();
 
         // Let's test our code against a "real" queue
-        Queue<Integer> test_queue = new LinkedList<Integer>();
+        Queue<Integer> test_queue = new LinkedList<>();
 
         for (int i = 0; i < 100; i++) {
             int choice = AssortedMethods.randomIntInRange(0, 10);

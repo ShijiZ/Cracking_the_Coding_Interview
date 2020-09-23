@@ -1,3 +1,5 @@
+package Chp3_Stacks_and_Queues;
+
 import java.util.LinkedList;
 
 public class Q6AnimalQueue {
