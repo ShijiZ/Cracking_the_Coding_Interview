@@ -50,7 +50,7 @@ public class TreeNode {
 		return size;
 	}
 	
-	public boolean isBST() {
+	public boolean isBST() {  // Commented by Shiji: I think this is wrong, see Q5ValidateBST
 		if (left != null) {
 			if (data < left.data || !left.isBST()) {
 				return false;
