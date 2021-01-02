@@ -1,3 +1,5 @@
+package Chp5_Bit_Manipulation;
+
 public class Q3FlipBitToWinV2 {
     public static int flipBits(int a){
         /* If all 1s, this is already the longest sequence*/

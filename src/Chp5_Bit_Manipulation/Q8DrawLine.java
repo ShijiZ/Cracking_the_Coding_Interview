@@ -1,3 +1,5 @@
+package Chp5_Bit_Manipulation;
+
 public class Q8DrawLine {
     public static void drawLine(byte[] screen, int width, int x1, int x2, int y){
         int start_offset = x1 % 8;

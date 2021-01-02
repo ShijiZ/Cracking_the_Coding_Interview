@@ -1,3 +1,5 @@
+package Chp5_Bit_Manipulation;
+
 import CtCILibrary.AssortedMethods;
 
 public class Q1Insertion {

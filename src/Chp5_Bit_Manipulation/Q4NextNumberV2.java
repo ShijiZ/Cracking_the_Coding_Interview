@@ -1,4 +1,6 @@
-public class Q4NextNumberV3 {
+package Chp5_Bit_Manipulation;
+
+public class Q4NextNumberV2 {
     public static int getNext(int n){
         /* Compute c0 and c1 */
         int c = n;
@@ -19,7 +21,13 @@ public class Q4NextNumberV3 {
         if (c0 + c1 == 31 || c0 + c1 == 0)
             return -1;
 
-        return n + (1<<c0) + (1<<(c1-1)) - 1;
+        int p = c0 + c1; // Position of rightmost non-trailing zero
+
+        n |= (1 << p); // Flip rightmost non-trailing zero
+        n &= ~((1 << p) - 1); // Clear all bits to the right of p
+        n |= (1 << (c1 - 1)) - 1; // Insert (c1-1) ones on the right
+
+        return n;
     }
 
     public static int getPrev(int n){
@@ -40,7 +48,12 @@ public class Q4NextNumberV3 {
             c >>= 1;
         }
 
-        return n - (1<<c1) - (1<<(c0 - 1)) + 1;
+        int p = c0 + c1; // Position of rightmost non-trailing zero
+
+        n &= ((~0) << (p + 1)); // Clear all bits from p to the right
+        n |= ((1 << (c1 + 1)) - 1) << (c0 - 1); // Insert (c1-1) ones on the right
+
+        return n;
     }
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package Chp5_Bit_Manipulation;
+
 public class Q4NextNumberV1 {
     public static int countOnes(int i){
         int count = 0;

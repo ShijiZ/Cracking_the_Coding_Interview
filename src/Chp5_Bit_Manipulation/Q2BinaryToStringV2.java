@@ -1,3 +1,5 @@
+package Chp5_Bit_Manipulation;
+
 public class Q2BinaryToStringV2 {
     public static String printBinary(double num){
         if (num >= 1 || num <= 0)
