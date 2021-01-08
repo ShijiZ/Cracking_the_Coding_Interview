@@ -1,14 +1,16 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.ArrayList;
 
 public class Q4PowerSetV2 {
     public static ArrayList<ArrayList<Integer>> getSubsets(ArrayList<Integer> set){
-        ArrayList<ArrayList<Integer>> allsubsets = new ArrayList<>();
+        ArrayList<ArrayList<Integer>> allSubsets = new ArrayList<>();
         int max = 1 << set.size(); /* Compute 2^n */
         for (int k = 0; k < max; k++){
             ArrayList<Integer> subset = convertIntToSet(k, set);
-            allsubsets.add(subset);
+            allSubsets.add(subset);
         }
-        return allsubsets;
+        return allSubsets;
     }
 
     public static ArrayList<Integer> convertIntToSet(int x, ArrayList<Integer> set){
@@ -24,7 +26,7 @@ public class Q4PowerSetV2 {
     }
 
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<Integer>();
+        ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
             list.add(i);
         }

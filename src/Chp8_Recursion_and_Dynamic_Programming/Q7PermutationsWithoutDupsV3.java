@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.ArrayList;
 
 public class Q7PermutationsWithoutDupsV3 {
@@ -11,12 +13,12 @@ public class Q7PermutationsWithoutDupsV3 {
     }
 
     private static void getPerms(String prefix, String str, ArrayList<String> permutations){
-        if (str.length() == 0){ // base case
+        int len = str.length();
+        if (len == 0){ // base case
             permutations.add(prefix);
             return;
         }
 
-        int len = str.length();
         for (int i=0; i < len; i++){
             // Remove char i and find permutations of remaining chars.
             String before = str.substring(0, i);

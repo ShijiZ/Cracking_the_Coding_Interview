@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,7 +27,7 @@ public class Q9ParensV1 {
 
     private static String insertInside(String str, int leftIndex){
         String left = str.substring(0, leftIndex + 1);
-        String right = str.substring(leftIndex + 1, str.length());
+        String right = str.substring(leftIndex + 1);
         return left + "()" + right;
     }
 

@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.ArrayList;
 
 public class Q7PermutationsWithoutDupsV2 {
@@ -5,9 +7,9 @@ public class Q7PermutationsWithoutDupsV2 {
         if (str == null)
             return null;
 
-        int len = str.length();
         ArrayList<String> permutations = new ArrayList<>();
-        if (str.length() == 0){ // base case
+        int len = str.length();
+        if (len == 0){ // base case
             permutations.add("");
             return permutations;
         }

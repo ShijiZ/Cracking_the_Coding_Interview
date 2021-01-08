@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.Arrays;
 
 public class Q1TripleStepV2 {
@@ -14,7 +16,7 @@ public class Q1TripleStepV2 {
             return 1;
         else if (memo[n] > -1)
             return memo[n];
-        else{
+        else {
             memo[n] = countWays(n-1, memo) + countWays(n-2, memo) +
                     countWays(n-3, memo);
             return memo[n];

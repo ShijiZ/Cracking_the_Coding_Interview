@@ -1,27 +1,28 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 public class Q10PaintFill {
     enum Color {Black, White, Red, Yellow, Green}
 
-    public static boolean PaintFill(Color[][] screen, int r, int c, Color ncolor){
-        if (screen[r][c] == ncolor)
-            return false;
-        return PaintFill(screen, r, c, screen[r][c], ncolor);
+    public static void PaintFill(Color[][] screen, int r, int c, Color newColor){
+        if (screen[r][c] == newColor)
+            return;
+        PaintFill(screen, r, c, screen[r][c], newColor);
     }
 
-    private static boolean PaintFill(Color[][] screen, int r, int c, Color ocolor, Color ncolor){
+    private static void PaintFill(Color[][] screen, int r, int c, Color oldColor, Color newColor){
         if (r < 0 || r >= screen.length || c < 0 || c >= screen[0].length)
-            return false;
+            return;
 
-        if (screen[r][c] == ocolor){
-            screen[r][c] = ncolor;
-            PaintFill(screen, r - 1, c, ocolor, ncolor); // up
-            PaintFill(screen, r + 1, c, ocolor, ncolor); // down
-            PaintFill(screen, r, c - 1, ocolor, ncolor); // left
-            PaintFill(screen, r, c + 1, ocolor, ncolor); // right
+        if (screen[r][c] == oldColor) {
+            screen[r][c] = newColor;
+            PaintFill(screen, r - 1, c, oldColor, newColor); // up
+            PaintFill(screen, r + 1, c, oldColor, newColor); // down
+            PaintFill(screen, r, c - 1, oldColor, newColor); // left
+            PaintFill(screen, r, c + 1, oldColor, newColor); // right
         }
-        return true;
     }
 
-    /* Helper methods below */
+    /*** Helper methods below ***/
     public static String PrintColor(Color c) {
         switch(c) {
             case Black:
@@ -50,7 +51,7 @@ public class Q10PaintFill {
     public static int randomInt(int n) {
         return (int) (Math.random() * n);
     }
-    /* Helper methods above */
+    /*** Helper methods above ***/
 
     public static void main(String[] args) {
         int N = 10;

@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 public class Q1TripleStepV1 {
     public static int countWays(int n){
         if (n < 0)

@@ -1,12 +1,17 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Q8PermutationsWithDups {
-    public static ArrayList<String> printPerms(String s){
-        ArrayList<String> result = new ArrayList<>();
-        HashMap<Character, Integer> map = buildFreqTable(s);
-        printPerms(map, "", s.length(), result);
-        return result;
+    public static ArrayList<String> getPerms(String str){
+        if (str == null)
+            return null;
+
+        ArrayList<String> permutations = new ArrayList<>();
+        HashMap<Character, Integer> map = buildFreqTable(str);
+        getPerms(map, "", str.length(), permutations);
+        return permutations;
     }
 
     private static HashMap<Character, Integer> buildFreqTable(String s){
@@ -20,11 +25,11 @@ public class Q8PermutationsWithDups {
         return map;
     }
 
-    private static void printPerms(HashMap<Character, Integer> map, String prefix, int remaining,
-                                   ArrayList<String> result){
+    private static void getPerms(HashMap<Character, Integer> map, String prefix, int len,
+                                 ArrayList<String> permutations){
         // Base case. Permutation has been completed.
-        if (remaining == 0){
-            result.add(prefix);
+        if (len == 0){
+            permutations.add(prefix);
             return;
         }
 
@@ -33,7 +38,7 @@ public class Q8PermutationsWithDups {
             int count = map.get(c);
             if (count > 0){
                 map.put(c, count - 1);
-                printPerms(map, prefix + c, remaining - 1, result);
+                getPerms(map, prefix + c, len - 1, permutations);
                 map.put(c, count);
             }
         }
@@ -41,7 +46,7 @@ public class Q8PermutationsWithDups {
 
     public static void main(String[] args) {
         String s = "aabbccc";
-        ArrayList<String> result = printPerms(s);
+        ArrayList<String> result = getPerms(s);
         System.out.println("Count: " + result.size());
         for (String r : result) {
             System.out.println(r);

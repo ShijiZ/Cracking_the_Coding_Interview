@@ -1,3 +1,5 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import CtCILibrary.AssortedMethods;
 
 import java.util.ArrayList;
@@ -25,12 +27,11 @@ public class Q2RobotInAGridV2 {
         /* If we've already visited this cell, return. */
         if (failedPoints.contains(p))
             return false;
-        boolean isAtOrigin = (row == 0)&&(col == 0);
 
         /* If there's a path from the start to there, add my location. */
-        if (isAtOrigin ||
-                getPath(maze, row, col-1, path, failedPoints) ||
-                getPath(maze, row-1, col, path, failedPoints)){
+        if ((row == 0)&&(col == 0) ||  // is at origin
+                getPath(maze, row, col-1, path, failedPoints) ||  // path exist to (row, col-1)
+                getPath(maze, row-1, col, path, failedPoints)){  // path exist to (row-1, col)
             path.add(p);
             return true;
         }
@@ -41,7 +42,7 @@ public class Q2RobotInAGridV2 {
 
     public static void main(String[] args) {
         int size = 5;
-        boolean[][] maze = AssortedMethods.randomBooleanMatrix(size, size, 70);
+        boolean[][] maze = AssortedMethods.randomBooleanMatrix(size, size, 80);
 
         AssortedMethods.printMatrix(maze);
 
@@ -65,18 +66,5 @@ class Point {
 
     public String toString() {
         return "(" + row + ", " + column + ")";
-    }
-
-    public int hashCode() {
-        return this.toString().hashCode();
-    }
-
-    public boolean equals(Object o) {
-        if ((o instanceof Point) &&
-                (((Point) o).row == this.row) &&
-                (((Point) o).column == this.column))
-            return true;
-        else
-            return false;
     }
 }

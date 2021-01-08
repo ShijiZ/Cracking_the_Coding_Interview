@@ -1,14 +1,27 @@
+package Chp8_Recursion_and_Dynamic_Programming;
+
 import CtCILibrary.AssortedMethods;
 
 import java.util.Arrays;
 
-public class Q3MagicIndexV1 {
-    public static int magicSlow(int[] array){
-        for (int i=0; i < array.length; i++){
-            if (array[i] == i)
-                return i;
+public class Q3MagicIndexV2 {
+    public static int magicFast(int[] array){
+        return magicFast(array, 0, array.length - 1);
+    }
+
+    private static int magicFast(int[] array, int start, int end){
+        if (end < start){
+            return -1;
         }
-        return -1;
+
+        int mid = (start + end) / 2;
+        if (array[mid] == mid){
+            return mid;
+        } else if (array[mid] > mid){
+            return magicFast(array, start, mid - 1);
+        } else {
+            return magicFast(array, mid + 1, end);
+        }
     }
 
     /* Creates an array that is distinct and sorted */
@@ -28,7 +41,7 @@ public class Q3MagicIndexV1 {
     public static void main(String[] args){
         int size = AssortedMethods.randomIntInRange(5, 20);
         int[] array = getDistinctSortedArray(size);
-        int magicIndex = magicSlow(array);
+        int magicIndex = magicFast(array);
 
         int[] indexArray = new int[size];
         for (int i=0; i<size; i++){
